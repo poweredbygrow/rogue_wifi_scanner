@@ -1,0 +1,13 @@
+{
+  "interfaces": [
+    "wlan0"
+  ],
+  "whitelist": [
+    "TELUS9244",
+    "TELUS1835-2.4G",
+    "SHAW-72D6C0-5G"
+  ],
+  "slack_webhooks": [
+    "https://hooks.slack.com/services/XXXXXXX/YYYYYYY/ZZZZZZZZZZZ"
+  ]
+}
