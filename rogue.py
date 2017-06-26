@@ -11,6 +11,8 @@ import urllib.request
 DEFAULT_INTERFACE = 'wlan0'
 REGEX = re.compile(r".*ESSID:\"(.*)\"")
 
+ROOT = os.path.dirname(os.path.realpath(__file__))
+
 
 def scan(interfaces):
     essids = set()
@@ -60,7 +62,7 @@ def learn(interfaces):
 
 class Config:
     def __init__(self):
-        self.file = 'config.json'
+        self.file = os.path.join(ROOT, 'config.json')
 
     def _get_config(self):
         if not os.path.exists(self.file):
