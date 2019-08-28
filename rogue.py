@@ -9,7 +9,7 @@ import sys
 import urllib.request
 
 DEFAULT_INTERFACE = 'wlan0'
-REGEX = re.compile(r".*ESSID:\"(.*)\"")
+REGEX = re.compile(r".*SSID: (.*)")
 
 ROOT = os.path.dirname(os.path.realpath(__file__))
 
@@ -17,7 +17,7 @@ ROOT = os.path.dirname(os.path.realpath(__file__))
 def scan(interfaces):
     essids = set()
     for interface in interfaces:
-        cmd = ['sudo', 'iwlist', interface, 'scanning']
+        cmd = ['sudo', 'iw', interface, 'scan']
         output = subprocess.check_output(cmd).decode()
         essids = essids.union(parse_scan(output))
     return essids
